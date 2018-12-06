@@ -879,6 +879,10 @@ SQL;
 
     public function quoteValue($str)
     {
+        if (!is_string($str)) {
+            return $str;
+        }
+        
         return "'" . addcslashes(str_replace("'", "''", $str), "\000\n\r\\\032") . "'";
     }
 
