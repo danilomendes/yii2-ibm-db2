@@ -876,4 +876,10 @@ SQL;
 
         return array_change_key_case($row, CASE_LOWER);
     }
+
+    public function quoteValue($str)
+    {
+        return "'" . addcslashes(str_replace("'", "''", $str), "\000\n\r\\\032") . "'";
+    }
+
 }
